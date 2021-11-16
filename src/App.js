@@ -1,68 +1,107 @@
-import React from 'react';
-import Heading from './components/Heading';
-import './App.css';
-import CalculatorKeys from './components/CalculatorKeys';
-import Results from './components/Results';
-
+import React from "react";
+import Heading from "./components/Heading";
+import "./App.css";
+import CalculatorKeys from "./components/CalculatorKeys";
+import Results from "./components/Results";
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       result: "",
-      history: "",
-    }
+      // x: "0",
+      // y: "0",
+      operation: "",
+    };
   }
 
-  buttonClicked = button => {
-    if(button === "=") {
-      this.calculate()
-    } else if (button === "CE") {
-      this.backspace()
+  buttonClicked = (button) => {
+    if (button === "=") {
+      this.calculate();
     } else if (button === "C") {
-      this.reset()
+      this.backspace();
+    } else if (button === "AC") {
+      this.reset();
+    } else if (button === "+") {
+      this.setState({
+        operation: "+",
+        result: this.state.result + button,
+      });
+    } else if (button === "-") {
+      this.setState({
+        operation: "-",
+        result: this.state.result + button,
+      });
+      // // else if (button === "+/-") {
+      // //   let result = this.state.result.split()
+      // //   lastInput = result[result.length -1]
+      // //   if(lastInput === parseInt())
+      // // }
     } else {
       this.setState({
-        result: this.state.result + button
-      })
-    } 
-  }
-  // calculate = () => {}
+        result: this.state.result + button,
+      });
+    }
+  };
+
+  calculate = () => {
+    const arr = this.state.result.split(/\+|-|\*|\//);
+    console.log(arr);
+    const [x, y] = arr;
+    const { operation } = this.state;
+    // console.log("x: " + x, "y: " + y);
+
+    if (operation === "+") {
+      let value = Number(x) + Number(y);
+      this.setState({
+        result: value,
+      });
+    } else if (operation === "-") {
+      const arr = this.state.result.split("-");
+      const [x, y] = arr;
+      let value = Number(x) - Number(y);
+      this.setState({
+        result: Number(value),
+      });
+    } else if (operation === "*") {
+      const arr = this.state.result.split("*");
+      const [x, y] = arr;
+      let value = Number(x) * Number(y);
+      this.setState({
+        result: Number(value),
+      });
+    } else if (operation === "/") {
+      let value = Number(x) / Number(y);
+      this.setState({
+        result: Number(value),
+      });
+    } else {
+      return null;
+    }
+  };
 
   backspace = () => {
     this.setState({
-      result: this.state.result.slice(0, -1)
-    })
-  }
-  
+      result: this.state.result.slice(0, -1),
+    });
+  };
+
   reset = () => {
     this.setState({
       result: "",
-    })
-  }
-    
+    });
+  };
 
   render() {
+    console.log(this.state.result);
     return (
-        <div className="App">
-      <Heading />
-      <Results result={this.state.result}/>
-      <CalculatorKeys buttonClicked={this.onClick}/>
-    </div>
-   ); 
+      <div className="App">
+        <Heading />
+        <Results result={this.state.result} />
+        <CalculatorKeys buttonClicked={this.buttonClicked} />
+      </div>
+    );
   }
 }
-  
+
 export default App;
-
-  
-
-
-/**function Display(props){
-    return (
-        <div className = 'containerDisplay'>
-            <p className = 'numeros'>{props.numero1} {props.operador} {props.numero2}</p>
-            <p className = 'resultado'>{props.resultado}</p>
-        </div>
-    )
-} */

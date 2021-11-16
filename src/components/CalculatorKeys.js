@@ -20,41 +20,30 @@ const keys = [
   { id: "0", keyType: "number", value: "0" },
   { id: "%", keyType: "number", value: "%" },
   { id: "total", keyType: "function", value: "=" },
+  { id: "invert", keyType: "operator", value: "+/-" },
 ];
 
-class Calculate extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            userInput: "",
-        }
-    }
+class CalculatorKeys extends React.Component {
+  render() {
+    return (
+      <div className="keyboard">
+        {keys.map((key, i) => {
+          return (
+            <button
+              className="buttons"
+              id={key.id}
+              key={i}
+              keyType={key.keyType}
+              value={key.value}
+              onClick={(event) => this.props.buttonClicked(event.target.value)}
+            >
+              {key.value}
+            </button>
+          );
+        })}
+      </div>
+    );
+  }
 }
-
-// handleButtonClick = (event) = {
-//     event.preventDefalu
-//     this.setState({
-//         userInput: event.target.value
-//     })
-// }
-const CalculatorKeys = () => {
-  return (
-    <div className="keyboard">
-      {keys.map((key, i) => {
-        return (
-          <button
-            className="buttons"
-            id={key.id}
-            key={i}
-            keyType={key.id}
-            onClick={(event) => this.props.onClick(event.target.id)}
-          >
-            {key.value}
-          </button>
-        );
-      })}
-    </div>
-  );
-};
 
 export default CalculatorKeys;
