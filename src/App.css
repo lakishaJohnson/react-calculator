@@ -16,6 +16,7 @@
 }
 
 .buttons {
+  box-shadow: inset 5em 1em gold;
   width: 25%;
   height: 60px;
   font-size: 30px;
