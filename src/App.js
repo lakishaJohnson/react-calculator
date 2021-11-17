@@ -9,16 +9,16 @@ class App extends React.Component {
     super(props);
     this.state = {
       result: "",
-      // x: "0",
-      // y: "0",
       operation: "",
     };
   }
 
   buttonClicked = (button) => {
+    // console.log(button)
     if (button === "=") {
       this.calculate();
-    } else if (button === "C") {
+    } else 
+    if (button === "C") {
       this.backspace();
     } else if (button === "AC") {
       this.reset();
@@ -32,11 +32,16 @@ class App extends React.Component {
         operation: "-",
         result: this.state.result + button,
       });
-      // // else if (button === "+/-") {
-      // //   let result = this.state.result.split()
-      // //   lastInput = result[result.length -1]
-      // //   if(lastInput === parseInt())
-      // // }
+    } else if (button === "*") {
+      this.setState({
+        operation: "*",
+        result: this.state.result + button,
+      });
+    } else if (button === "/") {
+      this.setState({
+        operation: "/",
+        result: this.state.result + button,
+      });
     } else {
       this.setState({
         result: this.state.result + button,
@@ -49,34 +54,43 @@ class App extends React.Component {
     console.log(arr);
     const [x, y] = arr;
     const { operation } = this.state;
-    // console.log("x: " + x, "y: " + y);
 
     if (operation === "+") {
       let value = Number(x) + Number(y);
       this.setState({
-        result: value,
+        result: value.toString(),
       });
     } else if (operation === "-") {
       const arr = this.state.result.split("-");
       const [x, y] = arr;
       let value = Number(x) - Number(y);
       this.setState({
-        result: Number(value),
+        result: value.toString(),
       });
     } else if (operation === "*") {
       const arr = this.state.result.split("*");
       const [x, y] = arr;
       let value = Number(x) * Number(y);
       this.setState({
-        result: Number(value),
+        result: value.toString(),
       });
     } else if (operation === "/") {
       let value = Number(x) / Number(y);
       this.setState({
-        result: Number(value),
+        result: value.toString(),
       });
+      // this.reset()
+    // } else if (operation === "%") {
+    //   let value = Number(x) + Number(y)
+    //   let percent = value / 100;
+    //   this.setState({
+    //     result: percent,
+    //   });
     } else {
-      return null;
+      this.setState({
+        result: "",
+        operation: ""
+      });
     }
   };
 
@@ -89,6 +103,7 @@ class App extends React.Component {
   reset = () => {
     this.setState({
       result: "",
+      operation: ""
     });
   };
 

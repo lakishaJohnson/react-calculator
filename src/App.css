@@ -1,23 +1,21 @@
-   
 .result {
-  height: 60px;
+  height: 80px;
   background-color: rgb(213, 106, 240);
-  width: 100%;
-  
+  width: 42%;
+  margin: auto;
 }
 
-.result p {
-  font-size: 40px;
-  margin: 5px;
-
-}
+/* .app {
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1,fr;
+} */
 
 .keyboard {
   max-width: 400px;
   margin: auto;
 }
 
-button {
+.buttons {
   width: 25%;
   height: 60px;
   font-size: 30px;
