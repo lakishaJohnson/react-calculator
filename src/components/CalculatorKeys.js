@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const keys = [
   { id: "invert", keyType: "operator", value: "+/-" },
   { id: "clear", keyType: "function", value: "C" },
@@ -8,7 +9,7 @@ const keys = [
   { id: "9", keyType: "number", value: "9" },
   { id: "8", keyType: "number", value: "8" },
   { id: "7", keyType: "number", value: "7" },
-  { id: "add", keyType: "operator", value: "+" },,
+  { id: "add", keyType: "operator", value: "+" },
   { id: "6", keyType: "number", value: "6" },
   { id: "5", keyType: "number", value: "5" },
   { id: "4", keyType: "number", value: "4" },
