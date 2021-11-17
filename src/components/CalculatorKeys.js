@@ -2,7 +2,7 @@ import React from "react";
 
 const keys = [
   { id: "invert", keyType: "operator", value: "+/-" },
-  { id: "allClear", keyType: "function", value: "AC" },
+  { id: "clear", keyType: "function", value: "C" },
   { id: "multiply", keyType: "operator", value: "*" },
   { id: "minus", keyType: "operator", value: "-" },
   { id: "9", keyType: "number", value: "9" },
@@ -19,7 +19,7 @@ const keys = [
   { id: "dot", keyType: "number", value: "." },
   { id: "0", keyType: "number", value: "0" },
   { id: "%", keyType: "number", value: "%" },
-  { id: "clear", keyType: "function", value: "C" },
+  { id: "allClear", keyType: "function", value: "AC" },
   { id: "total", keyType: "function", value: "=" },
 ];
 

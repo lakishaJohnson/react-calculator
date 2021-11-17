@@ -51,7 +51,7 @@ class App extends React.Component {
 
   calculate = () => {
     const arr = this.state.result.split(/\+|-|\*|\//);
-    console.log(arr);
+    // console.log(arr);
     const [x, y] = arr;
     const { operation } = this.state;
 
@@ -61,15 +61,11 @@ class App extends React.Component {
         result: value.toString(),
       });
     } else if (operation === "-") {
-      const arr = this.state.result.split("-");
-      const [x, y] = arr;
       let value = Number(x) - Number(y);
       this.setState({
         result: value.toString(),
       });
     } else if (operation === "*") {
-      const arr = this.state.result.split("*");
-      const [x, y] = arr;
       let value = Number(x) * Number(y);
       this.setState({
         result: value.toString(),
