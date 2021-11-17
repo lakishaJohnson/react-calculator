@@ -4,12 +4,7 @@
   width: 42%;
   margin: auto;
 }
-
-/* .app {
-  display: grid;
-  grid-template-columns: 1fr, 1fr, 1,fr;
-} */
-
+  
 .keyboard {
   max-width: 400px;
   margin: auto;
@@ -20,4 +15,6 @@
   width: 25%;
   height: 60px;
   font-size: 30px;
+  border-style: outset;
 }
+
